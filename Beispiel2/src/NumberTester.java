@@ -1,3 +1,5 @@
+import java.io.*;
+
 public class NumberTester {
     public String fileName;
     public NumberTest oddTester;
@@ -64,6 +66,27 @@ public class NumberTester {
         };
         setOddTester(oddTester);
 
-        
+//-----------------------------------------------------
+//Reading file, splitting read string and proofing the asked calculation
+//-----------------------------------------------------
+    try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(fileName))))){
+        int istCases = 0;
+        String line = br.readLine();
+
+        while (line != null){
+            int sollCases = Integer.parseInt(line);
+
+
+
+
+
+        }
+
+
+    } catch (FileNotFoundException e) {
+        System.out.println("Angegebenes File nicht gefunden, bitte erneut versuchen.");
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
     }
 }
