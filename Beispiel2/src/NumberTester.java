@@ -43,16 +43,15 @@ public class NumberTester {
 // Testing if x is a palindrom
 //-----------------------------------------------------
         palindromTester = (x) -> {
-            int original = x;
             int reversed = 0;
 
             //reversing number
             while(x != 0){
-                int tmp = x - 0;
+                int tmp = x % 10;
                 reversed = reversed * 10 + tmp;
             }
 
-            return reversed == original;
+            return reversed == x;
         };
         setPalindromTester(palindromTester);
 //-----------------------------------------------------
@@ -71,17 +70,41 @@ public class NumberTester {
 //-----------------------------------------------------
     try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(fileName))))){
         int istCases = 0;
+        int calcRequest;
+        int number;
         String line = br.readLine();
 
         while (line != null){
             int sollCases = Integer.parseInt(line);
+            //Leaves loop as soon as given amount of cases is reached.
+            if(sollCases == istCases)
+                System.exit(0);
+            //Now we read the next line after the first one with the amount of cases is already read before entering
+            //the loop. Every line we read from now on is gonna be either a calculation request + an Integer or a
+            //line given to us in the wrong format which we need to sort out.
 
+            line = br.readLine();
+            String [] casesPlusInteger = line.split(" ");
+            calcRequest = Integer.parseInt(casesPlusInteger[0]);
+            number = Integer.parseInt(casesPlusInteger[1]);
 
-
-
-
+            if(calcRequest == 1){
+                if (oddTester.testNumber(number))
+                    System.out.println("EVEN");
+                else
+                    System.out.println("UNEVEN");
+            } else if(calcRequest == 2){
+                if (primeTester.testNumber(number))
+                    System.out.println("PRIME");
+                else
+                    System.out.println("NO PRIME");
+            } else if(calcRequest == 3){
+                if (palindromTester.testNumber(number))
+                    System.out.println("PALINDROM");
+                else
+                    System.out.println("NO PALINDROM");
+            } else System.out.println("You try to choose a non existing calculative operation or your file has a wrong format, pls check and try again!");
         }
-
 
     } catch (FileNotFoundException e) {
         System.out.println("Angegebenes File nicht gefunden, bitte erneut versuchen.");
