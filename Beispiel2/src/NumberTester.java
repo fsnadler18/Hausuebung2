@@ -48,7 +48,8 @@ public class NumberTester {
             //reversing number
             while(x != 0){
                 int tmp = x % 10;
-                reversed = reversed * 10 + tmp;
+                reversed = (reversed * 10) + tmp;
+                x = x / 10;
             }
 
             return reversed == x;
@@ -71,11 +72,14 @@ public class NumberTester {
     try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(fileName))))){
         int istCases = 0;
         int calcRequest;
+        int sollCases = 0;
         int number;
         String line = br.readLine();
 
         while (line != null){
-            int sollCases = Integer.parseInt(line);
+            if(istCases == 0)
+               sollCases  = Integer.parseInt(line);
+
             //Leaves loop as soon as given amount of cases is reached.
             if(sollCases == istCases)
                 System.exit(0);
@@ -104,6 +108,7 @@ public class NumberTester {
                 else
                     System.out.println("NO PALINDROM");
             } else System.out.println("You try to choose a non existing calculative operation or your file has a wrong format, pls check and try again!");
+            istCases++;
         }
 
     } catch (FileNotFoundException e) {
