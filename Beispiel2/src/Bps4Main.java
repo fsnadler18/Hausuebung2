@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Bps4Main {
     public static void main(String [] args){
         Bps4Main b4m = new Bps4Main();
-        RationalCalculator rc;
+        RationalCalculator rc = new RationalCalculator();
         VectorCalculator vc;
         ComplexCalculator cc;
         Scanner scanner = new Scanner(System.in);
@@ -15,11 +15,31 @@ public class Bps4Main {
                 System.out.println("Funktioniert es immer noch nicht würde ich nochmal die Volkschule besuchen \n um schreiben zu lernen.");
                 continue;
             }
+
+            System.out.println("Enter number x a>1");
+            double xa = Integer.parseInt(scanner.nextLine());
+            System.out.println("Enter number x b>1");
+            double xb = Integer.parseInt(scanner.nextLine());
+            System.out.println("Enter number y a>1");
+            double ya = Integer.parseInt(scanner.nextLine());
+            System.out.println("Enter number y b>1");
+            double yb = Integer.parseInt(scanner.nextLine());
+
+            Number a = new Number();
+            a.setA(xa);
+            a.setB(xb);
+
+            Number b = new Number();
+            a.setA(ya);
+            a.setB(yb);
+
             b4m.printCalcOperations();
             int operationChoice = Integer.parseInt(scanner.nextLine());
 
             switch (calcKindChoise){
                 case 1:
+                    if(operationChoice == 1)
+                        rc.add(a, b);
                     break;
                 case 2:
                     break;

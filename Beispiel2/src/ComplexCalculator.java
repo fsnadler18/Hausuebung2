@@ -1,24 +1,24 @@
 public class ComplexCalculator extends AbstractCalculator {
-    public ComplexCalculator(CalculationOperation add, CalculationOperation subtract, CalculationOperation multiply, CalculationOperation divide) {
-        super( add = (a, b) -> {
+    public ComplexCalculator() {
+        super( (a, b) -> {
                     Number n = new Number();
                     n.setA(a.getA() + b.getA());
                     n.setB(a.getB() + b.getB());
                     return n;
                 },
-                subtract = (a, b) -> {
+                (a, b) -> {
                     Number n = new Number();
                     n.setA(a.getA() - b.getA());
                     n.setB(a.getB() - b.getB());
                     return n;
                 },
-                multiply = (a, b) -> {
+                (a, b) -> {
                     Number n = new Number();
                     n.setA(a.getA() * b.getA() - a.getB() * b.getA());
                     n.setB(a.getA() * b.getB() - a.getB() * b.getB());
                     return n;
                 },
-                divide = (a, b) -> {
+                (a, b) -> {
                     Number n = new Number();
                     n.setA((a.getA() * b.getA() + a.getB() * b.getB()) / (b.getA() * b.getA() + b.getB() * b.getB()));
                     n.setB((a.getB() * b.getA() - a.getA() * b.getB()) / (b.getA() * b.getA() + b.getB() * b.getB()));
