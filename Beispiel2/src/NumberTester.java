@@ -23,6 +23,7 @@ public class NumberTester {
         this.palindromTester = palindromTester;
     }
 
+
     public void testFile(){
 //-----------------------------------------------------
 // Testing if x is a prime number
@@ -59,10 +60,7 @@ public class NumberTester {
 // Testing if x is an odd number
 //-----------------------------------------------------
         oddTester = (x) -> {
-            if((x%2) == 0)
-                return true;
-            else
-                return false;
+            return (x%2) == 0;
         };
         setOddTester(oddTester);
 
