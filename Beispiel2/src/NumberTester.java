@@ -44,16 +44,15 @@ public class NumberTester {
 // Testing if x is a palindrom
 //-----------------------------------------------------
         palindromTester = (x) -> {
-            int reversed = 0;
+            String test = "" + x;
+            String reversed  = "";
+            char [] diggits = test.toCharArray();
 
-            //reversing number
-            while(x != 0){
-                int tmp = x % 10;
-                reversed = (reversed * 10) + tmp;
-                x = x / 10;
+            for (int i = test.length() - 1; i >= 0; i--) {
+                reversed = reversed + diggits[i];
             }
 
-            return reversed == x;
+            return reversed == test;
         };
         setPalindromTester(palindromTester);
 //-----------------------------------------------------
